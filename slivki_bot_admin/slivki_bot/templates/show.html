@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Employee Records</title>
-     {% load static %}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 </head>
 <body>
 <table class="table table-striped table-bordered table-sm">
@@ -24,28 +25,38 @@
     </tr>
     </thead>
     <tbody>
-{% for m in messages %}
+    {% for m in messages %}
     <tr>
         <td>{{ m.msg_id }}</td>     <!-- Номер анкеты -->
         <td>{{ m.msg_text|truncatechars:85 }}</td>
-        <td><a href="http://127.0.0.1:8000/{{ m.photo_1 }}"><img class="img-fluid" src="{{ m.photo_1 }}" height="45" width="45"/></a></td>
-        <td><a href="http://127.0.0.1:8000/{{ m.photo_2 }}"><img class="img-fluid" src="{{ m.photo_2 }}" height="45" width="45"/></a></td>
-        <td><a href="http://127.0.0.1:8000/{{ m.photo_3 }}"><img class="img-fluid" src="{{ m.photo_3 }}" height="45" width="45"/></a></td>
+        <td><a href="http://127.0.0.1:8000/{{ m.photo_1 }}"><img class="img-fluid" src="{{ m.photo_1 }}" height="45"
+                                                                 width="45"/></a></td>
+        <td><a href="http://127.0.0.1:8000/{{ m.photo_2 }}"><img class="img-fluid" src="{{ m.photo_2 }}" height="45"
+                                                                 width="45"/></a></td>
+        <td><a href="http://127.0.0.1:8000/{{ m.photo_3 }}"><img class="img-fluid" src="{{ m.photo_3 }}" height="45"
+                                                                 width="45"/></a></td>
         <td>{{ m.user_name }}</td>  <!-- Логин -->
         <td>{% now "Y-m-d" %}</td>   <!--??? Дата регистрации -->
-        <td>{% now "Y-m-d" %}</td>   <!--??? Окончание автопостинга -->
-        <td>{{ m.payment }}</td>                   <!-- Статус -->
+        <td>{{ m.exp_date }}</td>   <!--??? Окончание автопостинга -->
+        {% if m.payment == 1 %}
+        <td>{{ m.payment }} ✅</td>                   <!-- Статус -->
+        {% else %}
+        <td>{{ m.payment }} ❌</td>
+        {% endif %}
         <td>{{ m.comment }}</td>                   <!-- Комментарии -->
         <td>
-            <a href="/edit/{{ m.msg_id }}"><span class="glyphicon glyphicon-pencil" >🖊️</span></a>
+            <a href="/edit/{{ m.msg_id }}"><span class="glyphicon glyphicon-pencil">🖊️</span></a>
             <a href="/delete/{{ m.msg_id }}">🗑️</a>
         </td>
     </tr>
-{% endfor %}
+    {% endfor %}
     </tbody>
 </table>
 <br>
 <br>
 <div style="text-align: center;"><a href="/emp" class="btn btn-primary">Добавить новую запись</a></div>
+{% for u in users %}
+    {{ u.user_id }}
+{% endfor%}
 </body>
 </html>

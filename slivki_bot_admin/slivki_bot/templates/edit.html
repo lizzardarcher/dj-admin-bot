@@ -8,7 +8,23 @@
           integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 </head>
 <body>
-<form method="POST" class="post-form" action="/update/{{ messages.msg_id }}" enctype="">
+
+<!--{% if form.errors %}-->
+<!--    {% for field in form %}-->
+<!--        {% for error in field.errors %}-->
+<!--            <div class="alert alert-danger">-->
+<!--                <strong>{{ error|escape }}</strong>-->
+<!--            </div>-->
+<!--        {% endfor %}-->
+<!--    {% endfor %}-->
+<!--    {% for error in form.non_field_errors %}-->
+<!--        <div class="alert alert-danger">-->
+<!--            <strong>{{ error|escape }}</strong>-->
+<!--        </div>-->
+<!--    {% endfor %}-->
+<!--{% endif %}-->
+
+<form id="myform" method="POST" class="post-form" action="/update/{{ messages.msg_id }}" >
     {% csrf_token %}
     <div class="container">
         <br>
@@ -19,12 +35,12 @@
             </div>
         </div>
 
-<!--        <div class="form-group row">-->
-<!--            <label class="col-sm-2 col-form-label">Id Анкеты:</label>-->
-<!--            <div class="col-sm-4">-->
-<!--                <input type="number" name="msg_id" id="msg_id" value="{{ messages.msg_id }}"/>-->
-<!--            </div>-->
-<!--        </div>-->
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Id Анкеты:</label>
+            <div class="col-sm-4">
+                <input type="number" name="msg_id" id="msg_id" value="{{ messages.msg_id }}"/>
+            </div>
+        </div>
 
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Логин пользователя:</label>
@@ -62,7 +78,7 @@
             <label class="col-sm-2 col-form-label">Фото пользователя:</label>
             <div class="col-sm-4">
                 <input type="text" name="photo_3" id="photo_3"  maxlength="1000"
-                       value="{{ messages.photo_3 }}"/>
+                       value="{{ messages.photo_3 }}"  />
             </div>
         </div>
 
@@ -92,7 +108,7 @@
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Id пользователя:</label>
             <div class="col-sm-4">
-                <input type="number" name="user_id_id" id="user_id_id" value="{{ messages.user_id_id }}"/>
+                <input type="number" name="user_id" id="user_id" value="{{ messages.user_id_id }}"/>
             </div>
         </div>
 
@@ -105,5 +121,8 @@
         </div>
     </div>
 </form>
+
+
+
 </body>
 </html>

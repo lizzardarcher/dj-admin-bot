@@ -21,7 +21,7 @@ class Users(models.Model):
 class Messages(models.Model):
     msg_id = models.IntegerField(primary_key=True, )
     user_name = models.CharField(max_length=100)
-    msg_text = models.CharField(max_length=4000)
+    msg_text = models.TextField(max_length=4000)
     photo_1 = models.CharField(max_length=1000)
     photo_2 = models.CharField(max_length=1000)
     photo_3 = models.CharField(max_length=1000)

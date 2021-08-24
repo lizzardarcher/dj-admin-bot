@@ -498,44 +498,44 @@ model</ColNames>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="113" parent="17" name="msg_text">
+    <column id="113" parent="17" name="photo_1">
       <Position>3</Position>
-      <DataType>varchar(4000)|0s</DataType>
+      <DataType>varchar(1000)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="114" parent="17" name="photo_1">
+    <column id="114" parent="17" name="photo_2">
       <Position>4</Position>
       <DataType>varchar(1000)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="115" parent="17" name="photo_2">
+    <column id="115" parent="17" name="photo_3">
       <Position>5</Position>
       <DataType>varchar(1000)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="116" parent="17" name="photo_3">
+    <column id="116" parent="17" name="payment">
       <Position>6</Position>
-      <DataType>varchar(1000)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="117" parent="17" name="payment">
-      <Position>7</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="118" parent="17" name="exp_date">
-      <Position>8</Position>
+    <column id="117" parent="17" name="exp_date">
+      <Position>7</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="119" parent="17" name="comment">
-      <Position>9</Position>
+    <column id="118" parent="17" name="comment">
+      <Position>8</Position>
       <DataType>varchar(4000)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="120" parent="17" name="user_id_id">
-      <Position>10</Position>
+    <column id="119" parent="17" name="user_id_id">
+      <Position>9</Position>
       <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="120" parent="17" name="msg_text">
+      <Position>10</Position>
+      <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
     </column>
     <index id="121" parent="17" name="messages_user_id_id_e1e2e8ce">

@@ -22,20 +22,24 @@ def emp(request):
 
 def show(request):
     messages = Messages.objects.all()
+    users = Users.objects.all()
     return render(request, "show.html",
-                  {'messages': messages})
+                  {'messages': messages, 'users': users}
+                  )
 
 
 def edit(request, id):
     messages = Messages.objects.get(msg_id=id)
+    users = Users.objects.all()
     return render(request, 'edit.html',
-                  {'messages': messages})
+                  {'messages': messages, 'users': users})
 
 
 def update(request, id):
     messages = Messages.objects.get(msg_id=id)
     form = MessagesForm(request.POST, instance=messages)
-    print('Form is valid'+form.is_valid())
+    print('Form is valid'+str(form.is_valid()))
+    print(form.errors)
     if form.is_valid():
         form.save()
         return redirect("/show")
