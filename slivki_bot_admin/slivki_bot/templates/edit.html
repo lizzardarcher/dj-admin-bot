@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+<body>
+<form method="POST" class="post-form" action="/update/{{ messages.msg_id }}" enctype="">
+    {% csrf_token %}
+    <div class="container">
+        <br>
+        <div class="form-group row">
+            <label class="col-sm-1 col-form-label"></label>
+            <div class="col-sm-4">
+                <h3>Редактировать анкету</h3>
+            </div>
+        </div>
+
+<!--        <div class="form-group row">-->
+<!--            <label class="col-sm-2 col-form-label">Id Анкеты:</label>-->
+<!--            <div class="col-sm-4">-->
+<!--                <input type="number" name="msg_id" id="msg_id" value="{{ messages.msg_id }}"/>-->
+<!--            </div>-->
+<!--        </div>-->
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Логин пользователя:</label>
+            <div class="col-sm-4">
+                <input type="text" name="user_name" id="user_name"  maxlength="100"
+                       value="{{ messages.user_name }}"/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label"> Текст сообщения:</label>
+            <div class="col-sm-4">
+                <input type="text" name="msg_text" id="msg_text"  maxlength="4000"
+                       value="{{ messages.msg_text }}"/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Фото пользователя:</label>
+            <div class="col-sm-4">
+                <input type="text" name="photo_1" id="photo_1"  maxlength="1000"
+                       value="{{ messages.photo_1 }}"/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Фото пользователя:</label>
+            <div class="col-sm-4">
+                <input type="text" name="photo_2" id="photo_2"  maxlength="1000"
+                       value="{{ messages.photo_2 }}"/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Фото пользователя:</label>
+            <div class="col-sm-4">
+                <input type="text" name="photo_3" id="photo_3"  maxlength="1000"
+                       value="{{ messages.photo_3 }}"/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Статус оплаты:</label>
+            <div class="col-sm-4">
+                <input type="number" name="payment" id="payment" value="{{ messages.payment }}"/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Срок действия:</label>
+            <div class="col-sm-4">
+                <input type="text" name="exp_date" id="exp_date"  maxlength="100"
+                       value="{{ messages.exp_date }}"/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Комментарий:</label>
+            <div class="col-sm-4">
+                <input type="text" name="comment" id="comment"  maxlength="4000"
+                       value="{{ messages.comment }}"/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Id пользователя:</label>
+            <div class="col-sm-4">
+                <input type="number" name="user_id_id" id="user_id_id" value="{{ messages.user_id_id }}"/>
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <label class="col-sm-1 col-form-label"></label>
+            <div class="col-sm-4">
+                <button type="submit" class="btn btn-success">Редактировать</button>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>
